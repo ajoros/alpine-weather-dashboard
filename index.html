@@ -598,7 +598,18 @@
         
         function formatDate(dateString) {
             const date = new Date(dateString);
-            return date.toLocaleString();
+            
+            // Format to user's local time zone with readable format
+            const options = {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit',
+                minute: '2-digit',
+                timeZoneName: 'short'
+            };
+            
+            return date.toLocaleString('en-US', options);
         }
         
         function openFullscreen(img) {
