@@ -1,5 +1,9 @@
 name: Update Weather Dashboard
 
+# Give GitHub Actions permission to write to the repository
+permissions:
+  contents: write
+
 on:
   # Run every 4 hours
   schedule:
