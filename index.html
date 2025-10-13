@@ -593,11 +593,18 @@
         }
         
         function formatDate(dateString) {
-            // Parse the UTC timestamp correctly (add 'Z' if not present)
+            // Parse the UTC timestamp correctly
+            // The timestamps from GitHub Actions are UTC but have no timezone indicator
             const utcString = dateString.endsWith('Z') ? dateString : dateString + 'Z';
             const date = new Date(utcString);
             
-            // Format for local time
+            // Debugging - let's see what we're working with
+            console.log('Original dateString:', dateString);
+            console.log('UTC string:', utcString);
+            console.log('Parsed date:', date);
+            console.log('Date getTime():', date.getTime());
+            
+            // Format for actual local time (browser's timezone)
             const localOptions = {
                 month: 'short',
                 day: 'numeric', 
@@ -616,8 +623,13 @@
                 timeZoneName: 'short'
             };
             
+            // Get the actual local time (this will convert UTC to local timezone)
             const localTime = date.toLocaleString('en-US', localOptions);
+            // Get the UTC time explicitly
             const utcTime = date.toLocaleString('en-US', utcOptions);
+            
+            console.log('Local time result:', localTime);
+            console.log('UTC time result:', utcTime);
             
             return `${localTime}<br><small style="opacity: 0.8;">${utcTime}</small>`;
         }
