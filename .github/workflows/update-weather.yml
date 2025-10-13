@@ -30,7 +30,7 @@ jobs:
     - name: Install Python dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install playwright asyncio-compat
+        pip install playwright
         playwright install chromium
     
     - name: Copy scraper files to web directory
