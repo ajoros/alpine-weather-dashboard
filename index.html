@@ -224,8 +224,6 @@
         }
         .card-header {
             background: linear-gradient(135deg, #2d3748 0%, #4a5568 25%, #718096 50%, #a0aec0 75%, #cbd5e0 100%);
-            background-size: 200% 200%;
-            animation: shimmer 8s ease-in-out infinite;
             color: white;
             padding: 18px 24px;
             display: flex;
@@ -246,10 +244,6 @@
         }
         .card-header:hover::before {
             left: 100%;
-        }
-        @keyframes shimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
         }
         
         /* Special styling for NOAA DESI cards */
@@ -274,9 +268,11 @@
             font-size: 0.85em;
             opacity: 0.95;
             background: rgba(255, 255, 255, 0.2);
-            padding: 4px 8px;
+            padding: 6px 10px;
             border-radius: 12px;
             backdrop-filter: blur(5px);
+            text-align: right;
+            line-height: 1.3;
         }
         .screenshot-container {
             padding: 20px;
@@ -597,19 +593,33 @@
         }
         
         function formatDate(dateString) {
-            const date = new Date(dateString);
+            // Parse the UTC timestamp correctly (add 'Z' if not present)
+            const utcString = dateString.endsWith('Z') ? dateString : dateString + 'Z';
+            const date = new Date(utcString);
             
-            // Format to user's local time zone with readable format
-            const options = {
-                year: 'numeric',
+            // Format for local time
+            const localOptions = {
                 month: 'short',
-                day: 'numeric',
+                day: 'numeric', 
                 hour: '2-digit',
                 minute: '2-digit',
                 timeZoneName: 'short'
             };
             
-            return date.toLocaleString('en-US', options);
+            // Format for UTC time
+            const utcOptions = {
+                month: 'short',
+                day: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit',
+                timeZone: 'UTC',
+                timeZoneName: 'short'
+            };
+            
+            const localTime = date.toLocaleString('en-US', localOptions);
+            const utcTime = date.toLocaleString('en-US', utcOptions);
+            
+            return `${localTime}<br><small style="opacity: 0.8;">${utcTime}</small>`;
         }
         
         function openFullscreen(img) {
