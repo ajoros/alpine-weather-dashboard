@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Alpine Meadows",
+    "url": "https://www.wunderground.com/forecast/us/ca/alpine-meadows/KCASQUAW15",
+    "station_id": "KCASQUAW15"
+  },
+  {
+    "name": "Downtown Reno",
+    "url": "https://www.wunderground.com/forecast/us/nv/reno/89523?cm_ven=localwx_10day",
+    "station_id": "KNVRENO1473"
+  },
+  {
+    "name": "Olympic Valley (Squaw Valley)",
+    "url": "https://www.wunderground.com/forecast/us/ca/olympic-valley/KCAOLYMP3",
+    "station_id": "KCAOLYMP3"
+  },
+  {
+    "name": "Northstar at Tahoe (Truckee)",
+    "url": "https://www.wunderground.com/forecast/us/ca/northstar-at-tahoe/96161",
+    "station_id": "KCATRUCK288"
+  },
+  {
+    "name": "Mt Rose (Sky Tavern)",
+    "url": "https://www.wunderground.com/forecast/us/nv/reno/KNVRENO347?cm_ven=localwx_10day",
+    "station_id": "KNVRENO347"
+  },
+  {
+    "name": "NOAA DESI - Alpine Meadows Area",
+    "url": "https://sites.gsl.noaa.gov/desi/?x4dLocations=%5B%5D&chart=x1d&lat=39.1646&lon=-120.2387&theme=dark&timeZone=local&hourFormat=12&x4dviewState=%7B%22latitude%22%3A40.5%2C%22longitude%22%3A-100%2C%22bearing%22%3A0%2C%22pitch%22%3A20%2C%22zoom%22%3A4%7D&dset=NBM_CO-CONUS&clusHghlgt=true&x4dMapStyle=2D&x4dMaps=%7B%22basemap%22%3A%7B%22value%22%3A%22Mapbox%22%7D%2C%22mapboxBasemap%22%3A%7B%22value%22%3A%22Satellite%22%2C%22parentValue%22%3A%22mapboxBasemap%22%7D%7D&preferredFontSize=14",
+    "station_id": "NOAA_DESI_ALPINE"
+  },
+  {
+    "name": "NOAA DESI - Downtown Reno",
+    "url": "https://sites.gsl.noaa.gov/desi/?x4dLocations=%5B%5D&chart=x1d&lat=39.52963&lon=-119.8138&theme=dark&timeZone=local&hourFormat=12&x4dviewState=%7B%22latitude%22%3A40.5%2C%22longitude%22%3A-100%2C%22bearing%22%3A0%2C%22pitch%22%3A20%2C%22zoom%22%3A4%7D&dset=NBM_CO-CONUS&clusHghlgt=true&x4dMapStyle=2D&x4dMaps=%7B%22basemap%22%3A%7B%22value%22%3A%22Mapbox%22%7D%2C%22mapboxBasemap%22%3A%7B%22value%22%3A%22Satellite%22%2C%22parentValue%22%3A%22mapboxBasemap%22%7D%7D&preferredFontSize=14",
+    "station_id": "NOAA_DESI_RENO"
+  },
+  {
+    "name": "NOAA DESI - Heavenly Ski Resort",
+    "url": "https://sites.gsl.noaa.gov/desi/?x4dLocations=%5B%5D&chart=x1d&lat=38.953&lon=-119.887&theme=dark&timeZone=local&hourFormat=12&x4dviewState=%7B%22latitude%22%3A40.5%2C%22longitude%22%3A-100%2C%22bearing%22%3A0%2C%22pitch%22%3A20%2C%22zoom%22%3A4%7D&dset=NBM_CO-CONUS&clusHghlgt=true&x4dMapStyle=2D&x4dMaps=%7B%22basemap%22%3A%7B%22value%22%3A%22Mapbox%22%7D%2C%22mapboxBasemap%22%3A%7B%22value%22%3A%22Satellite%22%2C%22parentValue%22%3A%22mapboxBasemap%22%7D%7D&preferredFontSize=14",
+    "station_id": "NOAA_DESI_HEAVENLY"
+  }
+]

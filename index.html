@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #e3f2fd 0%, #f8f9ff 25%, #ffffff 50%, #f0f8ff 75%, #e6f3ff 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #2d3748;
+            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+        }
+        .header h1 {
+            color: #1a365d;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        .header p {
+            color: #4a5568;
+            font-size: 1.1em;
+            font-weight: 300;
+        }
+        .dashboard {
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .weather-section {
+            margin-bottom: 40px;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding: 15px 0;
+        }
+        
+        .section-title {
+            font-size: 1.8em;
+            font-weight: 300;
+            color: #1a365d;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+        
+        .section-subtitle {
+            font-size: 1em;
+            color: #4a5568;
+            font-weight: 300;
+        }
+        
+        .cards-container {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+        }
+        
+        .cards-container::-webkit-scrollbar {
+            height: 8px;
+        }
+        
+        .cards-container::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+        }
+        
+        .cards-container::-webkit-scrollbar-thumb {
+            background: rgba(29, 78, 216, 0.6);
+            border-radius: 4px;
+        }
+        
+        .cards-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(29, 78, 216, 0.8);
+        }
+        .weather-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), 0 2px 8px rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            overflow: hidden;
+            transition: all 0.3s ease;
+            min-width: 350px;
+            max-width: 450px;
+            flex: 0 0 auto;
+        }
+        .weather-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25), 0 4px 16px rgba(255, 255, 255, 0.4);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+        }
+        .card-header {
+            background: linear-gradient(135deg, #2d3748 0%, #4a5568 25%, #718096 50%, #a0aec0 75%, #cbd5e0 100%);
+            background-size: 200% 200%;
+            animation: shimmer 8s ease-in-out infinite;
+            color: white;
+            padding: 18px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        .card-header:hover::before {
+            left: 100%;
+        }
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        /* Special styling for NOAA DESI cards */
+        .weather-card.noaa-card {
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2), 0 2px 8px rgba(255, 255, 255, 0.3);
+        }
+        .weather-card.noaa-card .card-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #60a5fa 50%, #93c5fd 75%, #dbeafe 100%);
+        }
+        .weather-card.noaa-card:hover {
+            border: 2px solid rgba(59, 130, 246, 0.5);
+            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3), 0 4px 16px rgba(255, 255, 255, 0.4);
+        }
+        .location-name {
+            font-size: 1.3em;
+            font-weight: 500;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+            letter-spacing: 0.5px;
+        }
+        .last-updated {
+            font-size: 0.85em;
+            opacity: 0.95;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 8px;
+            border-radius: 12px;
+            backdrop-filter: blur(5px);
+        }
+        .screenshot-container {
+            padding: 20px;
+            text-align: center;
+            background: linear-gradient(145deg, rgba(248, 250, 252, 0.8), rgba(237, 242, 247, 0.6));
+        }
+        .weather-screenshot {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(31, 38, 135, 0.15), 0 1px 4px rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+        .weather-screenshot:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 30px rgba(31, 38, 135, 0.25), 0 2px 8px rgba(255, 255, 255, 0.4);
+        }
+        
+        /* Styles for multiple screenshots in NOAA DESI cards */
+        .multiple-screenshots {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .screenshot-item {
+            text-align: center;
+        }
+        
+        .screenshot-label {
+            font-size: 0.9em;
+            font-weight: 500;
+            color: #4a5568;
+            margin-bottom: 8px;
+            padding: 4px 8px;
+            background: rgba(59, 130, 246, 0.1);
+            border-radius: 8px;
+            display: inline-block;
+        }
+        
+        .noaa-card .screenshot-label {
+            background: rgba(59, 130, 246, 0.2);
+            color: #1e3a8a;
+        }
+        
+        .screenshot-item .weather-screenshot {
+            margin-top: 5px;
+        }
+        
+        /* Full page screenshot styling */
+        .full-page-label {
+            background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
+            color: white !important;
+            font-weight: 600;
+            padding: 8px 16px !important;
+            border-radius: 12px !important;
+            font-size: 0.95em !important;
+        }
+        
+        .full-page-screenshot {
+            border: 2px solid rgba(59, 130, 246, 0.3);
+            border-radius: 8px;
+            width: 100%;
+            height: auto;
+            max-width: none;
+            object-fit: contain;
+        }
+        
+        .full-page-screenshot:hover {
+            border-color: rgba(59, 130, 246, 0.6);
+        }
+        
+        /* Ensure NOAA cards can accommodate full height screenshots */
+        .weather-card.noaa-card {
+            min-width: 450px;
+            max-width: 600px;
+            min-height: auto;
+            max-height: none;
+        }
+        
+        .weather-card.noaa-card .screenshot-container {
+            padding: 25px;
+            max-height: none;
+            overflow: visible;
+        }
+        .refresh-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #2d3748, #4a5568);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 500;
+            box-shadow: 0 8px 20px rgba(31, 38, 135, 0.2), 0 2px 4px rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+        .refresh-button:hover {
+            background: linear-gradient(135deg, #1a202c, #2d3748);
+            transform: translateY(-2px);
+            box-shadow: 0 12px 25px rgba(31, 38, 135, 0.3), 0 4px 8px rgba(255, 255, 255, 0.4);
+        }
+        .refresh-button:active {
+            transform: translateY(0px);
+        }
+        .loading {
+            text-align: center;
+            color: #4a5568;
+            font-style: italic;
+            font-size: 1.1em;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .error {
+            background: rgba(254, 242, 242, 0.9);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            color: #c53030;
+            padding: 15px 20px;
+            border-radius: 12px;
+            margin: 15px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
+        }
+        
+        /* Alpine snow particle effect */
+        .snow-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .snowflake {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.8);
+            user-select: none;
+            pointer-events: none;
+            animation: fall linear infinite;
+        }
+        
+        @keyframes fall {
+            0% {
+                transform: translateY(-100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="snow-container" id="snow-container"></div>
+    
+    <button class="refresh-button" onclick="loadWeatherData()">Refresh</button>
+    
+    <div class="header">
+        <h1>Alpine Tahoe Weather</h1>
+        <p>Live Mountain Weather Conditions</p>
+    </div>
+
+    <div id="dashboard" class="dashboard">
+        <div class="loading">Loading weather data...</div>
+    </div>
+    
+    <!-- Template for the sectioned layout -->
+    <div id="sectioned-dashboard" class="dashboard" style="display: none;">
+        <div class="weather-section">
+            <div class="section-header">
+                <div class="section-title">Weather Underground Forecasts</div>
+                <div class="section-subtitle">Consumer weather forecasts and conditions</div>
+            </div>
+            <div id="wunderground-cards" class="cards-container">
+                <!-- Weather Underground cards will be inserted here -->
+            </div>
+        </div>
+        
+        <div class="weather-section">
+            <div class="section-header">
+                <div class="section-title">NOAA DESI Scientific Visualizations</div>
+                <div class="section-subtitle">Professional meteorological data and modeling</div>
+            </div>
+            <div id="noaa-cards" class="cards-container">
+                <!-- NOAA DESI cards will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function loadWeatherData() {
+            const dashboard = document.getElementById('dashboard');
+            dashboard.innerHTML = '<div class="loading">Loading weather data...</div>';
+            
+            try {
+                // Load the locations configuration
+                const response = await fetch('locations.json');
+                const locations = await response.json();
+                
+                // Get all screenshot files and metadata
+                const screenshots = await loadScreenshots();
+                
+                // Separate locations by type
+                const wundergroundLocations = locations.filter(loc => !loc.name.includes('NOAA DESI'));
+                const noaaLocations = locations.filter(loc => loc.name.includes('NOAA DESI'));
+                
+                // Clear loading and show sectioned dashboard
+                dashboard.style.display = 'none';
+                const sectionedDashboard = document.getElementById('sectioned-dashboard');
+                sectionedDashboard.style.display = 'block';
+                
+                // Populate Weather Underground section
+                const wundergroundContainer = document.getElementById('wunderground-cards');
+                wundergroundContainer.innerHTML = '';
+                for (const location of wundergroundLocations) {
+                    const card = createWeatherCard(location, screenshots);
+                    wundergroundContainer.appendChild(card);
+                }
+                
+                // Populate NOAA DESI section
+                const noaaContainer = document.getElementById('noaa-cards');
+                noaaContainer.innerHTML = '';
+                for (const location of noaaLocations) {
+                    const card = createWeatherCard(location, screenshots);
+                    noaaContainer.appendChild(card);
+                }
+                
+            } catch (error) {
+                console.error('Error loading weather data:', error);
+                dashboard.innerHTML = '<div class="error">Error loading weather data. Make sure the files are accessible.</div>';
+                dashboard.style.display = 'block';
+                document.getElementById('sectioned-dashboard').style.display = 'none';
+            }
+        }
+        
+        async function loadScreenshots() {
+            try {
+                const response = await fetch('screenshots_index.json');
+                const data = await response.json();
+                return data.stations;
+            } catch (error) {
+                console.error('Error loading screenshots index:', error);
+                return {};
+            }
+        }
+        
+        function createWeatherCard(location, screenshots) {
+            const card = document.createElement('div');
+            card.className = 'weather-card';
+            
+            // Add special styling for NOAA DESI cards
+            if (location.name && location.name.includes('NOAA DESI')) {
+                card.classList.add('noaa-card');
+            }
+            
+            // Find the most recent screenshot for this location
+            const latestScreenshot = findLatestScreenshot(location.station_id, screenshots);
+            
+            let screenshotContent = '';
+            let timestamp = 'No data';
+            
+            if (latestScreenshot && latestScreenshot.screenshot) {
+                timestamp = formatDate(latestScreenshot.screenshot.timestamp);
+                
+                // Add special labeling for full-page NOAA DESI screenshots
+                const screenshotLabel = latestScreenshot.is_full_page ? 
+                    '<div class="screenshot-label full-page-label">Complete NOAA DESI Visualization</div>' : '';
+                
+                screenshotContent = `
+                    ${screenshotLabel}
+                    <img src="${latestScreenshot.screenshot.path}" alt="Weather data for ${location.name}" class="weather-screenshot ${latestScreenshot.is_full_page ? 'full-page-screenshot' : ''}" onclick="openFullscreen(this)">
+                `;
+            } else {
+                screenshotContent = '<div class="loading">No screenshot available</div>';
+            }
+            
+            card.innerHTML = `
+                <div class="card-header">
+                    <div class="location-name">${location.name}</div>
+                    <div class="last-updated">${timestamp}</div>
+                </div>
+                <div class="screenshot-container">
+                    ${screenshotContent}
+                </div>
+            `;
+            
+            return card;
+        }
+        
+        function findLatestScreenshot(stationId, screenshots) {
+            if (screenshots[stationId] && screenshots[stationId].latest_screenshot) {
+                return {
+                    screenshot: screenshots[stationId].latest_screenshot,
+                    is_full_page: screenshots[stationId].is_full_page || false
+                };
+            }
+            return null;
+        }
+        
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleString();
+        }
+        
+        function openFullscreen(img) {
+            // Create overlay
+            const overlay = document.createElement('div');
+            overlay.style.cssText = `
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100vw;
+                height: 100vh;
+                background: rgba(0,0,0,0.9);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                z-index: 1000;
+                cursor: pointer;
+            `;
+            
+            const fullImg = document.createElement('img');
+            fullImg.src = img.src;
+            fullImg.style.cssText = `
+                max-width: 90vw;
+                max-height: 90vh;
+                border-radius: 10px;
+            `;
+            
+            overlay.appendChild(fullImg);
+            document.body.appendChild(overlay);
+            
+            overlay.onclick = () => document.body.removeChild(overlay);
+        }
+        
+        // Snow particle effect
+        function createSnowflakes() {
+            const snowContainer = document.getElementById('snow-container');
+            const snowflakeSymbols = ['❄', '❅', '✻', '✦', '✧', '✢'];
+            
+            // Create fewer snowflakes for better performance
+            for (let i = 0; i < 15; i++) {
+                setTimeout(() => {
+                    const snowflake = document.createElement('div');
+                    snowflake.className = 'snowflake';
+                    snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
+                    
+                    // Random positioning and timing
+                    snowflake.style.left = Math.random() * 100 + 'vw';
+                    snowflake.style.fontSize = (Math.random() * 15 + 10) + 'px';
+                    snowflake.style.animationDuration = (Math.random() * 15 + 10) + 's';
+                    snowflake.style.animationDelay = Math.random() * 2 + 's';
+                    
+                    snowContainer.appendChild(snowflake);
+                    
+                    // Remove snowflake after animation
+                    setTimeout(() => {
+                        if (snowflake.parentNode) {
+                            snowflake.parentNode.removeChild(snowflake);
+                        }
+                    }, 25000);
+                }, i * 200);
+            }
+        }
+        
+        // Auto-refresh every 30 minutes
+        setInterval(loadWeatherData, 30 * 60 * 1000);
+        
+        // Start snow effect and repeat
+        setInterval(createSnowflakes, 8000);
+        
+        // Load data and start snow when page loads
+        window.onload = function() {
+            loadWeatherData();
+            createSnowflakes();
+        };
+    </script>
+</body>
+</html>
