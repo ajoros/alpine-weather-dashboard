@@ -87,6 +87,124 @@
         .cards-container::-webkit-scrollbar-thumb:hover {
             background: rgba(29, 78, 216, 0.8);
         }
+        
+        /* Mobile-responsive styles */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+                letter-spacing: 1px;
+            }
+            
+            .header p {
+                font-size: 1em;
+            }
+            
+            .section-title {
+                font-size: 1.5em;
+            }
+            
+            .dashboard {
+                padding: 0 10px;
+            }
+            
+            /* Mobile: Vertical layout instead of horizontal scrolling */
+            .cards-container {
+                flex-direction: column;
+                overflow-x: visible;
+                align-items: center;
+                gap: 25px;
+            }
+            
+            .weather-card {
+                min-width: 90%;
+                max-width: 100%;
+                flex: none;
+            }
+            
+            /* Hide desktop scrollbar styles on mobile */
+            .cards-container::-webkit-scrollbar {
+                display: none;
+            }
+            
+            .location-name {
+                font-size: 1.1em;
+            }
+            
+            .last-updated {
+                font-size: 0.75em;
+            }
+            
+            .screenshot-container {
+                padding: 15px;
+            }
+        }
+        
+        /* Additional mobile optimizations for very small screens */
+        @media (max-width: 480px) {
+            body {
+                padding: 5px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .section-title {
+                font-size: 1.3em;
+            }
+            
+            .weather-card {
+                min-width: 95%;
+            }
+            
+            .card-header {
+                padding: 15px 18px;
+            }
+            
+            .location-name {
+                font-size: 1em;
+            }
+            
+            .screenshot-container {
+                padding: 10px;
+            }
+        }
+        
+        /* Mobile device specific optimizations */
+        .mobile-device .weather-card {
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+            touch-action: manipulation;
+        }
+        
+        .mobile-device .weather-screenshot {
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        /* Reduce snow on mobile for performance */
+        .mobile-device .snowflake {
+            animation-duration: 20s;
+        }
+        
+        /* Improved touch targets on mobile */
+        @media (max-width: 768px) {
+            .weather-card {
+                margin-bottom: 10px;
+            }
+            
+            .card-header {
+                min-height: 60px;
+                display: flex;
+                align-items: center;
+            }
+            
+            .weather-screenshot {
+                border-radius: 8px;
+            }
+        }
         .weather-card {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
@@ -550,11 +668,53 @@
         // Start snow effect and repeat
         setInterval(createSnowflakes, 8000);
         
+        // Mobile detection and optimization
+        function isMobileDevice() {
+            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+                   window.innerWidth <= 768;
+        }
+        
+        function addMobileFriendlyFeatures() {
+            if (isMobileDevice()) {
+                // Add mobile-specific class to body
+                document.body.classList.add('mobile-device');
+                
+                // Reduce snow particles on mobile for performance
+                const snowContainers = document.querySelectorAll('.snowflake');
+                snowContainers.forEach(snow => {
+                    if (Math.random() > 0.3) { // Keep only 30% of snowflakes on mobile
+                        snow.style.display = 'none';
+                    }
+                });
+                
+                // Add touch feedback for cards
+                setTimeout(() => {
+                    const cards = document.querySelectorAll('.weather-card');
+                    cards.forEach(card => {
+                        card.addEventListener('touchstart', function() {
+                            this.style.transform = 'translateY(-4px) scale(0.98)';
+                        });
+                        card.addEventListener('touchend', function() {
+                            this.style.transform = '';
+                        });
+                    });
+                }, 1000);
+                
+                console.log('Mobile-optimized weather dashboard loaded');
+            } else {
+                console.log('Desktop weather dashboard loaded');
+            }
+        }
+        
         // Load data and start snow when page loads
         window.onload = function() {
             loadWeatherData();
             createSnowflakes();
+            addMobileFriendlyFeatures();
         };
+        
+        // Re-check mobile status on window resize
+        window.addEventListener('resize', addMobileFriendlyFeatures);
     </script>
 </body>
 </html>
