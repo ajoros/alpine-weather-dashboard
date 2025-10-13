@@ -598,38 +598,28 @@
             const utcString = dateString.endsWith('Z') ? dateString : dateString + 'Z';
             const date = new Date(utcString);
             
-            // Debugging - let's see what we're working with
-            console.log('Original dateString:', dateString);
-            console.log('UTC string:', utcString);
-            console.log('Parsed date:', date);
-            console.log('Date getTime():', date.getTime());
-            
-            // Format for actual local time (browser's timezone)
+            // Create options for local time formatting
             const localOptions = {
                 month: 'short',
-                day: 'numeric', 
+                day: 'numeric',
                 hour: '2-digit',
                 minute: '2-digit',
                 timeZoneName: 'short'
             };
             
-            // Format for UTC time
+            // Create options for UTC time formatting  
             const utcOptions = {
                 month: 'short',
                 day: 'numeric',
-                hour: '2-digit', 
+                hour: '2-digit',
                 minute: '2-digit',
                 timeZone: 'UTC',
                 timeZoneName: 'short'
             };
             
-            // Get the actual local time (this will convert UTC to local timezone)
+            // Convert UTC to local time and format both
             const localTime = date.toLocaleString('en-US', localOptions);
-            // Get the UTC time explicitly
             const utcTime = date.toLocaleString('en-US', utcOptions);
-            
-            console.log('Local time result:', localTime);
-            console.log('UTC time result:', utcTime);
             
             return `${localTime}<br><small style="opacity: 0.8;">${utcTime}</small>`;
         }
