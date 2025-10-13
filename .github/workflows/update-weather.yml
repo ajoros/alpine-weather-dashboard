@@ -33,11 +33,9 @@ jobs:
         pip install playwright
         playwright install chromium
     
-    - name: Copy scraper files to web directory
+    - name: Verify scraper files are present
       run: |
-        cp ../weather_scraper.py .
-        cp ../generate_index.py .
-        cp ../locations.json .
+        ls -la weather_scraper.py generate_index.py locations.json
     
     - name: Run weather scraper
       run: |
