@@ -64,8 +64,8 @@ class WeatherScraper:
             
             # Simple wait for NOAA DESI or other sites
             if 'noaa.gov' in location['url'] or 'desi' in location['url']:
-                print(f"  Waiting for NOAA DESI content: {location['name']}")
-                await page.wait_for_timeout(8000)  # Simple 8 second wait
+                print(f"  Waiting for NOAA DESI content to fully load: {location['name']}")
+                await page.wait_for_timeout(16000)  # 16 second wait for plots to render
             else:
                 await page.wait_for_timeout(3000)
             
