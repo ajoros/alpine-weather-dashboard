@@ -47,8 +47,7 @@ jobs:
     
     - name: Clean up old screenshots (older than 48 hours)
       run: |
-        find screenshots/ -name "*.png" -mtime +2 -delete || true
-        find screenshots/ -name "metadata_*.json" -mtime +2 -delete || true
+        python cleanup_by_date.py
     
     - name: Configure Git
       run: |
