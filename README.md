@@ -1,37 +1,44 @@
 # Alpine Tahoe Weather Dashboard
 
-Live weather monitoring dashboard for the Lake Tahoe and Reno region.
+A live weather monitoring dashboard for the Lake Tahoe and Reno region, automatically updated every 4 hours.
 
-## Features
+## 🌐 View the Dashboard
 
-- **Weather Underground Forecasts**: 5 mountain locations
-- **NOAA DESI Scientific Visualizations**: 3 comprehensive weather models
-- **Automatic Updates**: Screenshots captured every 6 hours
-- **Alpine Winter Theme**: Clean, professional interface with snow effects
-- **Responsive Design**: Works on desktop, tablet, and mobile
+**Live Site**: [https://ajoros.github.io/alpine-weather-dashboard](https://ajoros.github.io/alpine-weather-dashboard)
 
-## Locations Monitored
+## What This Dashboard Shows
 
-### Weather Underground
+This dashboard displays current weather conditions and forecasts for popular Lake Tahoe ski areas and nearby locations:
+
+### Mountain Weather Stations (5 locations)
 - Alpine Meadows
-- Downtown Reno
 - Olympic Valley (Squaw Valley)
 - Northstar at Tahoe (Truckee)
 - Mt Rose (Sky Tavern)
-
-### NOAA DESI Scientific Data
-- Alpine Meadows Area
 - Downtown Reno
+
+### Scientific Weather Models (3 locations)
+- Alpine Meadows Area
 - Heavenly Ski Resort
+- Downtown Reno
 
-## Live Dashboard
+Weather data comes from Weather Underground and NOAA DESI scientific visualizations.
 
-Visit the live dashboard: [Alpine Tahoe Weather Dashboard](https://ajoros.github.io/alpine-weather-dashboard)
+## How It Works
 
-## Updates
+The dashboard automatically updates every 4 hours with fresh weather screenshots. The system keeps the last 2 days of data, so you can see recent weather trends and forecasts.
 
-The dashboard displays the latest weather data captured from automated screenshots. Data is refreshed every 6 hours at 12 AM, 6 AM, 12 PM, and 6 PM PST.
+The site is mobile-friendly and works on phones, tablets, and desktop computers.
+
+## Contact
+
+For questions or feedback about this dashboard:
+
+**Andrew Joros**  
+Desert Research Institute  
+Email: [andrew.joros@dri.edu](mailto:andrew.joros@dri.edu)  
+GitHub: [@ajoros](https://github.com/ajoros)
 
 ---
 
-*Automated weather monitoring system built with Playwright and Python*
+*A project by Desert Research Institute*

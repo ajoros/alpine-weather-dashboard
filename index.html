@@ -62,30 +62,11 @@
         }
         
         .cards-container {
-            display: flex;
-            overflow-x: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 20px;
             padding: 10px 0;
-            scroll-behavior: smooth;
-            -webkit-overflow-scrolling: touch;
-        }
-        
-        .cards-container::-webkit-scrollbar {
-            height: 8px;
-        }
-        
-        .cards-container::-webkit-scrollbar-track {
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-        }
-        
-        .cards-container::-webkit-scrollbar-thumb {
-            background: rgba(29, 78, 216, 0.6);
-            border-radius: 4px;
-        }
-        
-        .cards-container::-webkit-scrollbar-thumb:hover {
-            background: rgba(29, 78, 216, 0.8);
+            width: 100%;
         }
         
         /* Mobile-responsive styles */
@@ -116,24 +97,15 @@
                 padding: 8px 0;
             }
             
-            /* Mobile: Vertical layout instead of horizontal scrolling */
+            /* Mobile: Single column grid */
             .cards-container {
-                flex-direction: column;
-                overflow-x: visible;
-                align-items: center;
+                grid-template-columns: 1fr;
                 gap: 20px;
                 padding: 8px 0;
             }
             
             .weather-card {
-                min-width: 90%;
-                max-width: 100%;
-                flex: none;
-            }
-            
-            /* Hide desktop scrollbar styles on mobile */
-            .cards-container::-webkit-scrollbar {
-                display: none;
+                width: 100%;
             }
             
             .location-name {
@@ -177,12 +149,13 @@
             }
             
             .cards-container {
+                grid-template-columns: 1fr;
                 gap: 15px;
                 padding: 5px 0;
             }
             
             .weather-card {
-                min-width: 95%;
+                width: 100%;
             }
             
             .card-header {
@@ -237,9 +210,8 @@
             border: 1px solid rgba(255, 255, 255, 0.3);
             overflow: hidden;
             transition: all 0.3s ease;
-            min-width: 350px;
-            max-width: 450px;
-            flex: 0 0 auto;
+            width: 100%;
+            height: 100%;
         }
         .weather-card:hover {
             transform: translateY(-8px);
@@ -373,8 +345,7 @@
         
         /* Ensure NOAA cards can accommodate full height screenshots */
         .weather-card.noaa-card {
-            min-width: 450px;
-            max-width: 600px;
+            width: 100%;
             min-height: auto;
             max-height: none;
         }
