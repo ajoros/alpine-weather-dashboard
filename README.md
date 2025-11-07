@@ -26,7 +26,7 @@ Live weather monitoring dashboard for the Lake Tahoe and Reno region.
 
 ## Live Dashboard
 
-Visit the live dashboard: [Alpine Tahoe Weather Dashboard](https://yourusername.github.io/alpine-weather-dashboard)
+Visit the live dashboard: [Alpine Tahoe Weather Dashboard](https://ajoros.github.io/alpine-weather-dashboard)
 
 ## Updates
 
