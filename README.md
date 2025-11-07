@@ -32,7 +32,7 @@ The site is mobile-friendly and works on phones, tablets, and desktop computers.
 
 ## Contact
 
-For questions or feedback about this dashboard:
+Have comments or questions about this dashboard? Feel free to reach out!
 
 **Andrew Joros**  
 Desert Research Institute  
