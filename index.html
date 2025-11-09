@@ -307,21 +307,10 @@
                 timeZoneName: 'short'
             };
             
-            // Create options for UTC time formatting  
-            const utcOptions = {
-                month: 'short',
-                day: 'numeric',
-                hour: '2-digit',
-                minute: '2-digit',
-                timeZone: 'UTC',
-                timeZoneName: 'short'
-            };
-            
-            // Convert UTC to local time and format both
+            // Convert UTC to local time and format
             const localTime = date.toLocaleString('en-US', localOptions);
-            const utcTime = date.toLocaleString('en-US', utcOptions);
             
-            return `${localTime}<br><small style="opacity: 0.8;">${utcTime}</small>`;
+            return localTime;
         }
         
         function openFullscreen(img) {
