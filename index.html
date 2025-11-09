@@ -6,30 +6,25 @@
     <title>Weather Dashboard</title>
     <style>
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, sans-serif;
             margin: 0;
-            padding: 15px;
-            background: linear-gradient(135deg, #e3f2fd 0%, #f8f9ff 25%, #ffffff 50%, #f0f8ff 75%, #e6f3ff 100%);
-            background-attachment: fixed;
-            min-height: 100vh;
+            padding: 20px;
+            background: #fff;
+            color: #000;
+            line-height: 1.6;
+            max-width: 1400px;
+            margin: 0 auto;
         }
         .header {
-            text-align: center;
-            margin-bottom: 20px;
-            color: #2d3748;
-            text-shadow: 0 1px 3px rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            border-bottom: 1px solid #ddd;
+            padding-bottom: 10px;
         }
         .header h1 {
-            color: #1a365d;
-            margin-bottom: 10px;
-            font-size: 2.5em;
-            font-weight: 300;
-            letter-spacing: 2px;
-        }
-        .header p {
-            color: #4a5568;
-            font-size: 1.1em;
-            font-weight: 300;
+            margin: 0;
+            font-size: 1.8em;
+            font-weight: normal;
+            color: #000;
         }
         .dashboard {
             max-width: 100%;
@@ -38,27 +33,20 @@
         }
         
         .weather-section {
-            margin-bottom: 25px;
+            margin-bottom: 50px;
         }
         
         .section-header {
-            text-align: center;
-            margin-bottom: 15px;
-            padding: 10px 0;
+            margin-bottom: 20px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid #eee;
         }
         
         .section-title {
-            font-size: 1.8em;
-            font-weight: 300;
-            color: #1a365d;
-            margin-bottom: 5px;
-            letter-spacing: 1px;
-        }
-        
-        .section-subtitle {
-            font-size: 1em;
-            color: #4a5568;
-            font-weight: 300;
+            font-size: 1.4em;
+            font-weight: normal;
+            color: #333;
+            margin: 0;
         }
         
         .cards-container {
@@ -72,224 +60,57 @@
         /* Mobile-responsive styles */
         @media (max-width: 768px) {
             body {
-                padding: 8px;
+                padding: 10px;
             }
             
             .header h1 {
-                font-size: 2em;
-                letter-spacing: 1px;
-            }
-            
-            .section-title {
                 font-size: 1.5em;
             }
             
-            .dashboard {
-                padding: 0 8px;
-            }
-            
-            .weather-section {
-                margin-bottom: 20px;
-            }
-            
-            .section-header {
-                margin-bottom: 10px;
-                padding: 8px 0;
-            }
-            
-            /* Mobile: Single column grid */
-            .cards-container {
-                grid-template-columns: 1fr;
-                gap: 20px;
-                padding: 8px 0;
-            }
-            
-            .weather-card {
-                width: 100%;
-            }
-            
-            .location-name {
-                font-size: 1.1em;
-            }
-            
-            .last-updated {
-                font-size: 0.75em;
-            }
-            
-            .screenshot-container {
-                padding: 12px;
-            }
-        }
-        
-        /* Additional mobile optimizations for very small screens */
-        @media (max-width: 480px) {
-            body {
-                padding: 5px;
-            }
-            
-            .header {
-                margin-bottom: 15px;
-            }
-            
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
             .section-title {
-                font-size: 1.3em;
-            }
-            
-            .weather-section {
-                margin-bottom: 15px;
-            }
-            
-            .section-header {
-                margin-bottom: 8px;
-                padding: 5px 0;
+                font-size: 1.2em;
             }
             
             .cards-container {
                 grid-template-columns: 1fr;
                 gap: 15px;
-                padding: 5px 0;
-            }
-            
-            .weather-card {
-                width: 100%;
-            }
-            
-            .card-header {
-                padding: 12px 15px;
-            }
-            
-            .location-name {
-                font-size: 1em;
-            }
-            
-            .screenshot-container {
-                padding: 8px;
-            }
-        }
-        
-        /* Mobile device specific optimizations */
-        .mobile-device .weather-card {
-            -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
-            touch-action: manipulation;
-        }
-        
-        .mobile-device .weather-screenshot {
-            -webkit-tap-highlight-color: transparent;
-        }
-        
-        /* Reduce snow on mobile for performance */
-        .mobile-device .snowflake {
-            animation-duration: 20s;
-        }
-        
-        /* Improved touch targets on mobile */
-        @media (max-width: 768px) {
-            .weather-card {
-                margin-bottom: 10px;
-            }
-            
-            .card-header {
-                min-height: 60px;
-                display: flex;
-                align-items: center;
-            }
-            
-            .weather-screenshot {
-                border-radius: 8px;
             }
         }
         .weather-card {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            box-shadow: 0 8px 32px rgba(31, 38, 135, 0.15), 0 2px 8px rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            overflow: hidden;
-            transition: all 0.3s ease;
-            width: 100%;
-            height: 100%;
-        }
-        .weather-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 40px rgba(31, 38, 135, 0.25), 0 4px 16px rgba(255, 255, 255, 0.4);
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            background: #fff;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
         }
         .card-header {
-            background: linear-gradient(135deg, #2d3748 0%, #4a5568 25%, #718096 50%, #a0aec0 75%, #cbd5e0 100%);
-            color: white;
-            padding: 18px 24px;
+            background: #f5f5f5;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            position: relative;
-            overflow: hidden;
-        }
-        .card-header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.5s;
-        }
-        .card-header:hover::before {
-            left: 100%;
-        }
-        
-        /* Special styling for NOAA DESI cards */
-        .weather-card.noaa-card {
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            box-shadow: 0 8px 32px rgba(59, 130, 246, 0.2), 0 2px 8px rgba(255, 255, 255, 0.3);
-        }
-        .weather-card.noaa-card .card-header {
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 25%, #60a5fa 50%, #93c5fd 75%, #dbeafe 100%);
-        }
-        .weather-card.noaa-card:hover {
-            border: 2px solid rgba(59, 130, 246, 0.5);
-            box-shadow: 0 12px 40px rgba(59, 130, 246, 0.3), 0 4px 16px rgba(255, 255, 255, 0.4);
         }
         .location-name {
-            font-size: 1.3em;
-            font-weight: 500;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-            letter-spacing: 0.5px;
+            font-size: 1.1em;
+            font-weight: normal;
+            color: #000;
         }
         .last-updated {
             font-size: 0.85em;
-            opacity: 0.95;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 6px 10px;
-            border-radius: 12px;
-            backdrop-filter: blur(5px);
+            color: #666;
             text-align: right;
-            line-height: 1.3;
         }
         .screenshot-container {
-            padding: 20px;
+            padding: 15px;
             text-align: center;
-            background: linear-gradient(145deg, rgba(248, 250, 252, 0.8), rgba(237, 242, 247, 0.6));
         }
         .weather-screenshot {
             max-width: 100%;
             height: auto;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(31, 38, 135, 0.15), 0 1px 4px rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            transition: all 0.3s ease;
+            border: 1px solid #ddd;
             cursor: pointer;
         }
-        .weather-screenshot:hover {
-            transform: scale(1.02);
-            box-shadow: 0 8px 30px rgba(31, 38, 135, 0.25), 0 2px 8px rgba(255, 255, 255, 0.4);
-        }
         
-        /* Styles for multiple screenshots in NOAA DESI cards */
+        /* Styles for multiple screenshots */
         .multiple-screenshots {
             display: flex;
             flex-direction: column;
@@ -302,147 +123,38 @@
         
         .screenshot-label {
             font-size: 0.9em;
-            font-weight: 500;
-            color: #4a5568;
+            color: #666;
             margin-bottom: 8px;
-            padding: 4px 8px;
-            background: rgba(59, 130, 246, 0.1);
-            border-radius: 8px;
-            display: inline-block;
-        }
-        
-        .noaa-card .screenshot-label {
-            background: rgba(59, 130, 246, 0.2);
-            color: #1e3a8a;
-        }
-        
-        .screenshot-item .weather-screenshot {
-            margin-top: 5px;
-        }
-        
-        /* Full page screenshot styling */
-        .full-page-label {
-            background: linear-gradient(135deg, #1e3a8a, #3b82f6) !important;
-            color: white !important;
-            font-weight: 600;
-            padding: 8px 16px !important;
-            border-radius: 12px !important;
-            font-size: 0.95em !important;
-        }
-        
-        .full-page-screenshot {
-            border: 2px solid rgba(59, 130, 246, 0.3);
-            border-radius: 8px;
-            width: 100%;
-            height: auto;
-            max-width: none;
-            object-fit: contain;
-        }
-        
-        .full-page-screenshot:hover {
-            border-color: rgba(59, 130, 246, 0.6);
-        }
-        
-        /* Ensure NOAA cards can accommodate full height screenshots */
-        .weather-card.noaa-card {
-            width: 100%;
-            min-height: auto;
-            max-height: none;
-        }
-        
-        .weather-card.noaa-card .screenshot-container {
-            padding: 25px;
-            max-height: none;
-            overflow: visible;
         }
         .refresh-button {
             position: fixed;
             top: 20px;
             right: 20px;
-            background: linear-gradient(135deg, #2d3748, #4a5568);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            border-radius: 30px;
+            background: #fff;
+            color: #000;
+            border: 1px solid #ddd;
+            padding: 8px 16px;
             cursor: pointer;
-            font-size: 1em;
-            font-weight: 500;
-            box-shadow: 0 8px 20px rgba(31, 38, 135, 0.2), 0 2px 4px rgba(255, 255, 255, 0.3);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            transition: all 0.3s ease;
-            letter-spacing: 0.5px;
+            font-size: 0.9em;
         }
         .refresh-button:hover {
-            background: linear-gradient(135deg, #1a202c, #2d3748);
-            transform: translateY(-2px);
-            box-shadow: 0 12px 25px rgba(31, 38, 135, 0.3), 0 4px 8px rgba(255, 255, 255, 0.4);
-        }
-        .refresh-button:active {
-            transform: translateY(0px);
+            background: #f5f5f5;
         }
         .loading {
             text-align: center;
-            color: #4a5568;
-            font-style: italic;
-            font-size: 1.1em;
+            color: #666;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.7);
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
         }
         .error {
-            background: rgba(254, 242, 242, 0.9);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #c53030;
-            padding: 15px 20px;
-            border-radius: 12px;
+            background: #fff;
+            border: 1px solid #ddd;
+            color: #d00;
+            padding: 15px;
             margin: 15px 0;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 12px rgba(239, 68, 68, 0.1);
-        }
-        
-        /* Alpine snow particle effect */
-        .snow-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
-        .snowflake {
-            position: absolute;
-            color: rgba(255, 255, 255, 0.8);
-            user-select: none;
-            pointer-events: none;
-            animation: fall linear infinite;
-        }
-        
-        @keyframes fall {
-            0% {
-                transform: translateY(-100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            90% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
         }
     </style>
 </head>
 <body>
-    <div class="snow-container" id="snow-container"></div>
-    
     <button class="refresh-button" onclick="loadWeatherData()">Refresh</button>
     
     <div class="header">
@@ -647,89 +359,13 @@
             overlay.onclick = () => document.body.removeChild(overlay);
         }
         
-        // Snow particle effect
-        function createSnowflakes() {
-            const snowContainer = document.getElementById('snow-container');
-            const snowflakeSymbols = ['❄', '❅', '✻', '✦', '✧', '✢'];
-            
-            // Create fewer snowflakes for better performance
-            for (let i = 0; i < 15; i++) {
-                setTimeout(() => {
-                    const snowflake = document.createElement('div');
-                    snowflake.className = 'snowflake';
-                    snowflake.innerHTML = snowflakeSymbols[Math.floor(Math.random() * snowflakeSymbols.length)];
-                    
-                    // Random positioning and timing
-                    snowflake.style.left = Math.random() * 100 + 'vw';
-                    snowflake.style.fontSize = (Math.random() * 15 + 10) + 'px';
-                    snowflake.style.animationDuration = (Math.random() * 15 + 10) + 's';
-                    snowflake.style.animationDelay = Math.random() * 2 + 's';
-                    
-                    snowContainer.appendChild(snowflake);
-                    
-                    // Remove snowflake after animation
-                    setTimeout(() => {
-                        if (snowflake.parentNode) {
-                            snowflake.parentNode.removeChild(snowflake);
-                        }
-                    }, 25000);
-                }, i * 200);
-            }
-        }
-        
         // Auto-refresh every 30 minutes
         setInterval(loadWeatherData, 30 * 60 * 1000);
         
-        // Start snow effect and repeat
-        setInterval(createSnowflakes, 8000);
-        
-        // Mobile detection and optimization
-        function isMobileDevice() {
-            return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
-                   window.innerWidth <= 768;
-        }
-        
-        function addMobileFriendlyFeatures() {
-            if (isMobileDevice()) {
-                // Add mobile-specific class to body
-                document.body.classList.add('mobile-device');
-                
-                // Reduce snow particles on mobile for performance
-                const snowContainers = document.querySelectorAll('.snowflake');
-                snowContainers.forEach(snow => {
-                    if (Math.random() > 0.3) { // Keep only 30% of snowflakes on mobile
-                        snow.style.display = 'none';
-                    }
-                });
-                
-                // Add touch feedback for cards
-                setTimeout(() => {
-                    const cards = document.querySelectorAll('.weather-card');
-                    cards.forEach(card => {
-                        card.addEventListener('touchstart', function() {
-                            this.style.transform = 'translateY(-4px) scale(0.98)';
-                        });
-                        card.addEventListener('touchend', function() {
-                            this.style.transform = '';
-                        });
-                    });
-                }, 1000);
-                
-                console.log('Mobile-optimized weather dashboard loaded');
-            } else {
-                console.log('Desktop weather dashboard loaded');
-            }
-        }
-        
-        // Load data and start snow when page loads
+        // Load data when page loads
         window.onload = function() {
             loadWeatherData();
-            createSnowflakes();
-            addMobileFriendlyFeatures();
         };
-        
-        // Re-check mobile status on window resize
-        window.addEventListener('resize', addMobileFriendlyFeatures);
     </script>
 </body>
 </html>
