@@ -1,16 +1,23 @@
 {
-  "last_updated": "2026-05-07T10:24:07.196102",
+  "last_updated": "2026-05-07T14:03:12.177360",
   "stations": {
     "KNVRENO1473": {
       "latest_screenshot": {
-        "filename": "KNVRENO1473_20260507_102223.png",
-        "path": "screenshots/KNVRENO1473_20260507_102223.png",
-        "timestamp": "2026-05-07T10:22:23",
-        "size": 118807,
+        "filename": "KNVRENO1473_20260507_140151.png",
+        "path": "screenshots/KNVRENO1473_20260507_140151.png",
+        "timestamp": "2026-05-07T14:01:51",
+        "size": 118045,
         "type": "single"
       },
-      "total_screenshots": 9,
+      "total_screenshots": 10,
       "all_screenshots": [
+        {
+          "filename": "KNVRENO1473_20260507_140151.png",
+          "path": "screenshots/KNVRENO1473_20260507_140151.png",
+          "timestamp": "2026-05-07T14:01:51",
+          "size": 118045,
+          "type": "single"
+        },
         {
           "filename": "KNVRENO1473_20260507_102223.png",
           "path": "screenshots/KNVRENO1473_20260507_102223.png",
@@ -78,16 +85,107 @@
       "has_multiple_views": false,
       "is_full_page": false
     },
-    "KCATRUCK288": {
+    "KNVRENO347": {
       "latest_screenshot": {
-        "filename": "KCATRUCK288_20260507_102250.png",
-        "path": "screenshots/KCATRUCK288_20260507_102250.png",
-        "timestamp": "2026-05-07T10:22:50",
-        "size": 121400,
+        "filename": "KNVRENO347_20260507_140214.png",
+        "path": "screenshots/KNVRENO347_20260507_140214.png",
+        "timestamp": "2026-05-07T14:02:14",
+        "size": 119837,
         "type": "single"
       },
-      "total_screenshots": 9,
+      "total_screenshots": 10,
       "all_screenshots": [
+        {
+          "filename": "KNVRENO347_20260507_140214.png",
+          "path": "screenshots/KNVRENO347_20260507_140214.png",
+          "timestamp": "2026-05-07T14:02:14",
+          "size": 119837,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260507_102304.png",
+          "path": "screenshots/KNVRENO347_20260507_102304.png",
+          "timestamp": "2026-05-07T10:23:04",
+          "size": 118742,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260507_063358.png",
+          "path": "screenshots/KNVRENO347_20260507_063358.png",
+          "timestamp": "2026-05-07T06:33:58",
+          "size": 110932,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260507_024033.png",
+          "path": "screenshots/KNVRENO347_20260507_024033.png",
+          "timestamp": "2026-05-07T02:40:33",
+          "size": 120394,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260506_210929.png",
+          "path": "screenshots/KNVRENO347_20260506_210929.png",
+          "timestamp": "2026-05-06T21:09:29",
+          "size": 118146,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260506_172824.png",
+          "path": "screenshots/KNVRENO347_20260506_172824.png",
+          "timestamp": "2026-05-06T17:28:24",
+          "size": 121528,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260506_140448.png",
+          "path": "screenshots/KNVRENO347_20260506_140448.png",
+          "timestamp": "2026-05-06T14:04:48",
+          "size": 119451,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260506_101514.png",
+          "path": "screenshots/KNVRENO347_20260506_101514.png",
+          "timestamp": "2026-05-06T10:15:14",
+          "size": 119325,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260506_062818.png",
+          "path": "screenshots/KNVRENO347_20260506_062818.png",
+          "timestamp": "2026-05-06T06:28:18",
+          "size": 119510,
+          "type": "single"
+        },
+        {
+          "filename": "KNVRENO347_20260506_023826.png",
+          "path": "screenshots/KNVRENO347_20260506_023826.png",
+          "timestamp": "2026-05-06T02:38:26",
+          "size": 120563,
+          "type": "single"
+        }
+      ],
+      "has_multiple_views": false,
+      "is_full_page": false
+    },
+    "KCATRUCK288": {
+      "latest_screenshot": {
+        "filename": "KCATRUCK288_20260507_140208.png",
+        "path": "screenshots/KCATRUCK288_20260507_140208.png",
+        "timestamp": "2026-05-07T14:02:08",
+        "size": 120236,
+        "type": "single"
+      },
+      "total_screenshots": 10,
+      "all_screenshots": [
+        {
+          "filename": "KCATRUCK288_20260507_140208.png",
+          "path": "screenshots/KCATRUCK288_20260507_140208.png",
+          "timestamp": "2026-05-07T14:02:08",
+          "size": 120236,
+          "type": "single"
+        },
         {
           "filename": "KCATRUCK288_20260507_102250.png",
           "path": "screenshots/KCATRUCK288_20260507_102250.png",
@@ -157,14 +255,21 @@
     },
     "NOAA_DESI_RENO": {
       "latest_screenshot": {
-        "filename": "NOAA_DESI_RENO_20260507_102347.png",
-        "path": "screenshots/NOAA_DESI_RENO_20260507_102347.png",
-        "timestamp": "2026-05-07T10:23:47",
+        "filename": "NOAA_DESI_RENO_20260507_140254.png",
+        "path": "screenshots/NOAA_DESI_RENO_20260507_140254.png",
+        "timestamp": "2026-05-07T14:02:54",
         "size": 331041,
         "type": "full_page"
       },
-      "total_screenshots": 9,
+      "total_screenshots": 10,
       "all_screenshots": [
+        {
+          "filename": "NOAA_DESI_RENO_20260507_140254.png",
+          "path": "screenshots/NOAA_DESI_RENO_20260507_140254.png",
+          "timestamp": "2026-05-07T14:02:54",
+          "size": 331041,
+          "type": "full_page"
+        },
         {
           "filename": "NOAA_DESI_RENO_20260507_102347.png",
           "path": "screenshots/NOAA_DESI_RENO_20260507_102347.png",
@@ -234,14 +339,21 @@
     },
     "NOAA_DESI_ALPINE": {
       "latest_screenshot": {
-        "filename": "NOAA_DESI_ALPINE_20260507_102329.png",
-        "path": "screenshots/NOAA_DESI_ALPINE_20260507_102329.png",
-        "timestamp": "2026-05-07T10:23:29",
+        "filename": "NOAA_DESI_ALPINE_20260507_140236.png",
+        "path": "screenshots/NOAA_DESI_ALPINE_20260507_140236.png",
+        "timestamp": "2026-05-07T14:02:36",
         "size": 338707,
         "type": "full_page"
       },
-      "total_screenshots": 9,
+      "total_screenshots": 10,
       "all_screenshots": [
+        {
+          "filename": "NOAA_DESI_ALPINE_20260507_140236.png",
+          "path": "screenshots/NOAA_DESI_ALPINE_20260507_140236.png",
+          "timestamp": "2026-05-07T14:02:36",
+          "size": 338707,
+          "type": "full_page"
+        },
         {
           "filename": "NOAA_DESI_ALPINE_20260507_102329.png",
           "path": "screenshots/NOAA_DESI_ALPINE_20260507_102329.png",
@@ -311,14 +423,21 @@
     },
     "KCAOLYMP3": {
       "latest_screenshot": {
-        "filename": "KCAOLYMP3_20260507_102236.png",
-        "path": "screenshots/KCAOLYMP3_20260507_102236.png",
-        "timestamp": "2026-05-07T10:22:36",
-        "size": 121610,
+        "filename": "KCAOLYMP3_20260507_140158.png",
+        "path": "screenshots/KCAOLYMP3_20260507_140158.png",
+        "timestamp": "2026-05-07T14:01:58",
+        "size": 119579,
         "type": "single"
       },
-      "total_screenshots": 9,
+      "total_screenshots": 10,
       "all_screenshots": [
+        {
+          "filename": "KCAOLYMP3_20260507_140158.png",
+          "path": "screenshots/KCAOLYMP3_20260507_140158.png",
+          "timestamp": "2026-05-07T14:01:58",
+          "size": 119579,
+          "type": "single"
+        },
         {
           "filename": "KCAOLYMP3_20260507_102236.png",
           "path": "screenshots/KCAOLYMP3_20260507_102236.png",
@@ -386,93 +505,23 @@
       "has_multiple_views": false,
       "is_full_page": false
     },
-    "KNVRENO347": {
-      "latest_screenshot": {
-        "filename": "KNVRENO347_20260507_102304.png",
-        "path": "screenshots/KNVRENO347_20260507_102304.png",
-        "timestamp": "2026-05-07T10:23:04",
-        "size": 118742,
-        "type": "single"
-      },
-      "total_screenshots": 9,
-      "all_screenshots": [
-        {
-          "filename": "KNVRENO347_20260507_102304.png",
-          "path": "screenshots/KNVRENO347_20260507_102304.png",
-          "timestamp": "2026-05-07T10:23:04",
-          "size": 118742,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260507_063358.png",
-          "path": "screenshots/KNVRENO347_20260507_063358.png",
-          "timestamp": "2026-05-07T06:33:58",
-          "size": 110932,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260507_024033.png",
-          "path": "screenshots/KNVRENO347_20260507_024033.png",
-          "timestamp": "2026-05-07T02:40:33",
-          "size": 120394,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260506_210929.png",
-          "path": "screenshots/KNVRENO347_20260506_210929.png",
-          "timestamp": "2026-05-06T21:09:29",
-          "size": 118146,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260506_172824.png",
-          "path": "screenshots/KNVRENO347_20260506_172824.png",
-          "timestamp": "2026-05-06T17:28:24",
-          "size": 121528,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260506_140448.png",
-          "path": "screenshots/KNVRENO347_20260506_140448.png",
-          "timestamp": "2026-05-06T14:04:48",
-          "size": 119451,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260506_101514.png",
-          "path": "screenshots/KNVRENO347_20260506_101514.png",
-          "timestamp": "2026-05-06T10:15:14",
-          "size": 119325,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260506_062818.png",
-          "path": "screenshots/KNVRENO347_20260506_062818.png",
-          "timestamp": "2026-05-06T06:28:18",
-          "size": 119510,
-          "type": "single"
-        },
-        {
-          "filename": "KNVRENO347_20260506_023826.png",
-          "path": "screenshots/KNVRENO347_20260506_023826.png",
-          "timestamp": "2026-05-06T02:38:26",
-          "size": 120563,
-          "type": "single"
-        }
-      ],
-      "has_multiple_views": false,
-      "is_full_page": false
-    },
     "KCASQUAW15": {
       "latest_screenshot": {
-        "filename": "KCASQUAW15_20260507_102208.png",
-        "path": "screenshots/KCASQUAW15_20260507_102208.png",
-        "timestamp": "2026-05-07T10:22:08",
-        "size": 118191,
+        "filename": "KCASQUAW15_20260507_140139.png",
+        "path": "screenshots/KCASQUAW15_20260507_140139.png",
+        "timestamp": "2026-05-07T14:01:39",
+        "size": 118763,
         "type": "single"
       },
-      "total_screenshots": 9,
+      "total_screenshots": 10,
       "all_screenshots": [
+        {
+          "filename": "KCASQUAW15_20260507_140139.png",
+          "path": "screenshots/KCASQUAW15_20260507_140139.png",
+          "timestamp": "2026-05-07T14:01:39",
+          "size": 118763,
+          "type": "single"
+        },
         {
           "filename": "KCASQUAW15_20260507_102208.png",
           "path": "screenshots/KCASQUAW15_20260507_102208.png",
@@ -542,14 +591,21 @@
     },
     "NOAA_DESI_HEAVENLY": {
       "latest_screenshot": {
-        "filename": "NOAA_DESI_HEAVENLY_20260507_102406.png",
-        "path": "screenshots/NOAA_DESI_HEAVENLY_20260507_102406.png",
-        "timestamp": "2026-05-07T10:24:06",
+        "filename": "NOAA_DESI_HEAVENLY_20260507_140311.png",
+        "path": "screenshots/NOAA_DESI_HEAVENLY_20260507_140311.png",
+        "timestamp": "2026-05-07T14:03:11",
         "size": 325860,
         "type": "full_page"
       },
-      "total_screenshots": 9,
+      "total_screenshots": 10,
       "all_screenshots": [
+        {
+          "filename": "NOAA_DESI_HEAVENLY_20260507_140311.png",
+          "path": "screenshots/NOAA_DESI_HEAVENLY_20260507_140311.png",
+          "timestamp": "2026-05-07T14:03:11",
+          "size": 325860,
+          "type": "full_page"
+        },
         {
           "filename": "NOAA_DESI_HEAVENLY_20260507_102406.png",
           "path": "screenshots/NOAA_DESI_HEAVENLY_20260507_102406.png",
